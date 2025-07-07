@@ -1,0 +1,24 @@
+@for(man of arr ; track arr ){
+  
+  <!-- @if($odd)$even,$first,$last,$index -->
+    <!-- { -->
+      <div style="background-color: greenyellow; color: rgb(15, 0, 73); font-size: x-large; display: flex; flex-direction: column; justify-items: space-between; ">
+      <div style="display: inline-block; margin: 10px;">
+        <span style="margin-right: 10px;">{{$index+1}}</span>
+        <span>{{man}}</span>
+      </div>
+    </div>
+
+    <!-- 2nd method -->
+    
+    <input type="text" #inputValue (input)="handleText(inputValue.value)" style="font-size: x-large;">
+    <div style="font-size: x-large; color: azure; text-align: center;">{{name}}</div>
+
+    <!-- 1st method -->
+
+    <!-- <input type="text" [(ngModel)]="name" style="font-size: x-large;">
+    <div style="font-size: x-large; color: azure; text-align: center;">{{name}}</div> -->
+
+  <!-- } -->
+  
+}

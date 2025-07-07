@@ -1,0 +1,46 @@
+<h1>if - else </h1>
+<hr>
+<!-- <button type="submit" (click)="change()">change value</button> -->
+<button type="submit" (click)="changeValue()">red</button>
+<button type="submit" (click)="changeValue1()">blue</button>
+<button type="submit" (click)="changeValue2()">green</button>
+<button type="submit" (click)="changeValue3()">black</button>
+<input type="text" (input)="changeValue4(inputValue.value)" #inputValue>
+<hr>
+<!-- @if(value == "red"){
+  <div class="box b1"></div>
+}
+@else if(value =="green"){
+  <div class="box b2"></div>
+}
+@else if(value =="blue"){
+  <div class="box b3"></div>
+}
+@else if(value =="black"){
+  <div class="box b4"></div>
+}
+@else{
+  <div class="box b5"></div>
+} -->
+
+<!-- @switch(value){
+  @case("red"){
+    <div class="box b1"></div>
+  }
+  @case("green"){
+    <div class="box b2"></div>
+  }
+  @case("blue"){
+    <div class="box b3"></div>
+  }
+  @case("black"){
+    <div class="box b4"></div>
+  }
+  @default{
+    <div class="box b5"></div>
+  }
+} -->
+
+@for(item of arr;track item){
+  <div class="box b5">{{item}}</div>
+}

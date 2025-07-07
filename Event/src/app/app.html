@@ -1,0 +1,7 @@
+<h1>Event handling</h1>
+<div class="container c1" (click)="event1()"></div>
+<div class="container c2" (mousemove)="event2()" (mouseleave)="event3()"></div>
+<!-- <input type="text" name="event-text" (input)="event4(#inputField)" #inputField> -->
+<input type="text" name="event-text" (blur)="event5($event)" (focus)="event5($event)">
+<input #emailInput type="text" />
+<button (click)="emailInput.focus()">Focus Input</button>

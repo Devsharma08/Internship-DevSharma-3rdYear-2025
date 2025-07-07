@@ -1,0 +1,18 @@
+<h1>To-Do List</h1>
+<hr>
+<div>
+  <input type="text" [style.backgroundColor]="bgColor" [style.color]="textColor" [(ngModel)]="task" #inputValue placeholder="Enter The Task" (input)="submits(inputValue.value)">
+  <button type="submit" (click)="handleClick()">Add</button>
+  <div>
+<h1>
+    @for(task of tasks;track $index;let i = $index;){
+      <div style="display: flex; justify-content: flex-start; gap: 40px; align-items: center;">
+        <span  [style.backgroundColor]="bgColor" [style.padding.px]="px" [style.color]="textColor">{{$index}}</span>
+        <span>{{task}}</span>
+        <button type="submit" id={{$index}} style="width: 60px; height: 25px; margin-left: 10px; border-radius: 10px;" (click)="handleDelete(i)">Delete</button>
+      </div>
+    }
+
+</h1>  
+</div>
+</div>

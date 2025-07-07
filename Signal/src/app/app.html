@@ -1,0 +1,19 @@
+<h1>{{a()}}</h1>
+<button (click)="a.set('this is tutorial of signal')">click me</button>
+
+<hr>
+
+<h1>again increment/decrement program</h1>
+<h2>{{val()}}</h2>
+<h2>{{z()}}</h2>
+<button (click)="inc()">increment</button>
+<!-- <button (click)="dec()">decrement</button> -->
+<!-- <button (click)="val.set(val()+1)">increment</button> -->
+<button (click)="val.set(val()-1)">decrement</button>
+
+<hr>
+
+<button class="btn"  (click)="clickEvent()">click to toggle</button>
+@if(newVal()){
+  <div class="divi">this is Effect </div>
+}

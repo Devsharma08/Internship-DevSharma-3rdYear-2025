@@ -1,0 +1,26 @@
+.box{
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.b1{
+  background-color: rgb(255, 0, 0);
+}
+.b2{
+  background-color: rgb(0, 81, 255);
+}
+.b3{
+  background-color: rgb(0, 130, 24);
+}
+.b4{
+  background-color: rgb(0, 0, 0);
+}
+.b5{
+  background-image: linear-gradient(to bottom right ,rgb(99, 147, 245),rgb(48, 210, 48),rgb(248, 163, 107));
+}
+button{
+  margin:10px;
+  background-color: rgba(0, 0, 0, 0.767);
+  color: aliceblue;
+}

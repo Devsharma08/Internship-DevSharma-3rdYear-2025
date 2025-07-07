@@ -1,0 +1,15 @@
+.divi{
+  background-color: orange;
+  color: blueviolet;
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 800;
+}
+
+.btn{
+  background-color: rgb(8, 8, 90);
+  color: skyblue;
+  font-size: x-large;
+  padding: 3px;
+  border-radius: 10px;
+}

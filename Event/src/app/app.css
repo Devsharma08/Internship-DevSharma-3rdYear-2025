@@ -1,0 +1,13 @@
+.container{
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px;
+}
+.c1{
+  background-color: greenyellow;
+}
+.c2{
+  background-color: gray;
+}

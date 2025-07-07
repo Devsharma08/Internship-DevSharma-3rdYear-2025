@@ -1,0 +1,61 @@
+<div *ngFor="let i of arr;track i;index as j;">
+  <h1>{{j+1}}{{i}}</h1>
+</div>
+
+<button (click)="bool = !bool">Click To toggle</button>
+<div *ngIf="bool ; else elseBlock">
+  <h1>this is after if block run</h1>
+</div>
+<ng-template #elseBlock>
+  <h1>this is when else block wiil run</h1>
+</ng-template>
+
+<h2 *ngIf="isLoggedIn; else loginMsg">Welcome back, user!</h2>
+
+<ng-template #loginMsg>
+  <h2>Please log in to continue.</h2>
+</ng-template>
+
+<button (click)="isLoggedIn = !isLoggedIn">Toggle Login</button>
+
+<br>
+
+
+<button (click)="age = age + 1">+ Age</button>
+
+<h2>Age is: {{ age }}</h2>
+
+<!-- Check if level is 'low' -->
+<div *ngIf="level === 'low'; then lowLevel; else notLow"></div>
+
+
+<ng-template #notLow>
+  <div *ngIf="level === 'mid'; then midLevel; else highLevel"></div>
+</ng-template>
+
+
+<ng-template #lowLevel>
+  <h1>This is the LOWEST level</h1>
+</ng-template>
+
+<ng-template #midLevel>
+  <h1>This is the MID level</h1>
+</ng-template>
+
+<ng-template #highLevel>
+  <h1>This is the HIGHEST level</h1>
+</ng-template>
+
+<button (click)="changeColor('red')">red</button>
+<button (click)="changeColor('blue')">blue</button>
+<button (click)="changeColor('green')">green</button>
+<button (click)="changeColor('yellow')">yellow</button>
+<button (click)="changeColor('black')">black</button>
+<div [ngSwitch]="color">
+  <h1>switch case example</h1>
+  <h1 *ngSwitchCase="'red'">red</h1>
+  <h1 *ngSwitchCase="'blue'">blue</h1>
+  <h1 *ngSwitchCase="'green'">green</h1>
+  <h1 *ngSwitchCase="'yellow'">yellow</h1>
+  <h1 *ngSwitchDefault="'black'">new colour</h1>
+</div>
