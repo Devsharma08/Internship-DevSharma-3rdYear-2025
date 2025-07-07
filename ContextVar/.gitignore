@@ -87,3 +87,6 @@ coverage/
 
 # Misc
 temp/
+# Prevent tracking of nested Git repos (submodules)
+**/.git
+.gitmodules
