@@ -1,0 +1,30 @@
+<h1 style="text-align: center;">Reactive Forms</h1>
+
+<form style="display: flex; flex-direction: column; justify-content: flex-start; row-gap: 20px; align-items: center;" [formGroup]="formGroup">
+
+  <input type="text" formControlName="name" placeholder="enter the name">
+  <!-- <span *ngIf="name?.hasError('required')">Name is Required</span> -->
+  <span *ngIf="name?.invalid && (name?.dirty || name?.touched)">Name is Required</span>
+
+  <input type="email" formControlName="email"  placeholder="enter the email">
+  <span *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+    <span *ngIf="email?.errors?.['required']">Email is required</span>
+    <span *ngIf="email?.errors?.['email']">Enter a valid email</span>
+  </span>
+
+  <input type="password" formControlName="password"  placeholder="enter the email">
+  <span *ngIf="password?.invalid && (password?.dirty || password?.touched)"> Fill the correct password</span>
+  
+  <button type="button" (click)="display()">Submit</button>
+  <br>
+  <br>
+  <button type="button" (click)="clear()">Clear</button>
+</form>
+<br>
+<br>
+<div style="text-align: center;">
+  <h1>submitted data</h1>
+  <h2>{{formGroup.value.name}}</h2>
+  <h2>{{formGroup.value.email}}</h2>
+  <h2>{{formGroup.value.password}}</h2>
+</div>
