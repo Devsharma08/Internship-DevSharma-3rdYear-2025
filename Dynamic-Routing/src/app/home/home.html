@@ -1,0 +1,7 @@
+<p>home works!</p>
+
+<div *ngFor="let user of jsonData; track: trackByuserId">
+  <li>
+    <a routerLink="user/{{user.id}}/{{user.name}}">{{ user.name }}</a>
+  </li>
+</div>
