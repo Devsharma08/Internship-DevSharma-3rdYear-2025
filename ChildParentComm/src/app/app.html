@@ -1,0 +1,19 @@
+<!-- this is child to parent communication -->
+
+<!-- <h2>Parent Component</h2>
+
+<app-user (getUsers)="receiveUsers($event)"></app-user>
+
+<h3>Users received from child:</h3>
+<ul>
+  <li *ngFor="let user of usersFromChild">
+    {{ user }}
+  </li>
+</ul> -->
+
+
+<h1 style="text-align: center;">Reuse Component</h1>
+
+<div *ngFor="let user of users;trackBy:trackByIndex">
+  <app-user [user]="user"> </app-user>
+</div>

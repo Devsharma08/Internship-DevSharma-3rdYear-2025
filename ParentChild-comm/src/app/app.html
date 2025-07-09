@@ -1,0 +1,7 @@
+{{title}}
+<!-- <app-user name="Admin" password="123@321"></app-user> -->
+@for(user of users;track user){
+<h1>
+  {{user}}
+  <app-user [name]="user"></app-user>
+</h1>}

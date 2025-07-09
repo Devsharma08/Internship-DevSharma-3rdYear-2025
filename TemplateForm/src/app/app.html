@@ -8,20 +8,29 @@
   <span *ngIf="name.invalid && name.touched">Enter the Name</span>
   <br><br>
 
-  <input type="email" #email="ngModel" placeholder="Enter email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" ngModel>
-  <span *ngIf="email.valid && email.touched">Enter the Correct Email</span>
+  <input type="email" #email="ngModel" required placeholder="Enter email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" ngModel>
+  <span *ngIf="email.invalid && email.touched">Enter the Correct Email</span>
   <br><br>
 
-  <input type="password" minlength="3" maxlength="10" #password="ngModel" placeholder="Enter password" name="password" ngModel>
+  <input type="password" minlength="3" required maxlength="10" #password="ngModel" placeholder="Enter password" name="password" ngModel>
   <span *ngIf="password.invalid && password.touched">Enter the Correct password</span>
   <br><br>
 
+  <select name="gender" #gender="ngModel" required ngModel>
+  <option value="male" >male</option>
+  <option value="female" >female</option>
+</select>
+<span *ngIf="gender.invalid && gender.touched">Select a Gender</span>
+
+  <br><br>
   <button type="submit" [disabled]="UserForm.invalid" >Submit</button>
 </form>
 <br><br>
+
 <div style="text-align: center;">
   <h1>Entered Value</h1>
   <h2>{{userObj?.name}}</h2>
   <h2>{{userObj?.email}}</h2>
   <h2>{{userObj?.password}}</h2>
+  <h2>{{userObj?.gender}}</h2>
 </div>
