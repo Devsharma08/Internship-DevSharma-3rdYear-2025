@@ -1,0 +1,48 @@
+{{title}}
+
+<fieldset style="margin:0px 30%">
+  <legend>Add data to API</legend>
+<!-- <form style="text-align: center;" #formData="ngForm" (ngSubmit)="submitData(formData.value)">
+  <input type="number"step='1' placeholder="Enter id" name="id" [ngModel]="selectedData[0]?.id">
+  <br><br>
+  <input type="text" name="title" placeholder="Enter title" [ngModel]="selectedData[0]?.title">
+  <br><br>
+  <input type="text" name="author" placeholder="Enter author" [ngModel]="selectedData[0]?.author">
+  <br><br>
+  <button type="submit">Submit</button>
+</form> -->
+<form #formData="ngForm"  style="text-align: center;" (ngSubmit)="submitData(formData.value)">
+  <input type="number"step='1' placeholder="Enter id" name="id" [ngModel]="selectedData[0]?.id" disabled>
+  <br><br>
+  <input type="text" name="title" ngModel [ngModel]="selectedData[0]?.title || ''" placeholder="Title">
+  <br><br>
+  <input type="text" name="author" ngModel [ngModel]="selectedData[0]?.author || ''" placeholder="Author">
+  <br><br>
+  <button type="submit">
+    {{ updatingId !== undefined ? 'Update' : 'Add' }}
+  </button>
+</form>
+
+</fieldset> 
+
+<div style="display: flex; align-items: center;flex-direction: column; row-gap: 20px;">
+@for(user of data;track user.id){
+  <div style="border: 2px solid; padding: 20px;">
+  <div>Title: {{user.title}} </div>
+  <div>Id: {{user.id}} </div>
+  <div>Author: {{user.author}} </div>
+
+  <button type="button" (click)="deleteData(user.id)">Delete</button>
+  <!-- @if(updatingId===user.id)
+  {@if(!selectedData[0]){
+    <button type="button" (click)="getSelectedData(user.id)">Update</button>
+  }
+  @else{
+    <button type="button" (click)="getSelectedData(user.id)">Add</button>
+  }} -->
+  <button type="button" (click)="getSelectedData(user.id)">
+    Update
+  </button>
+  </div>
+}
+</div>

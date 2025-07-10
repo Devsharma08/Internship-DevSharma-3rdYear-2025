@@ -1,0 +1,17 @@
+<!-- <h1 style="text-align: center;">{{title}}</h1> -->
+
+<!-- life cycle example -->
+
+<!-- <div style="text-align: center; font-size: xx-large;">
+  <app-timer *ngIf="showTimer" ></app-timer>
+  <button (click)="toggleTimer()" style="font-size: medium; background-color: black; color: azure;">Toggle timer</button>
+</div> -->
+
+<div style="text-align: center;">Services</div>
+
+<div *ngFor="let user of userData;trackBy:trackByUserFn">
+  <h2>{{user.id}} User</h2>
+  <h2>{{user.name}}</h2>
+</div>
+
+<button (click)="getServiceData()">Click to get data</button>
