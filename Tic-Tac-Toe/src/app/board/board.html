@@ -1,0 +1,19 @@
+<mat-card class="game-container">
+  <h1>Current Player: <span class="highlight">{{ player }}</span></h1>
+
+  <button mat-raised-button color="primary" (click)="newGame()">Start New Game</button>
+
+  <h2 *ngIf="winner" class="winner-text">
+    🎉 Player <span class="highlight">{{ winner }}</span> wins the game!
+  </h2>
+
+  <mat-divider></mat-divider>
+
+  <main class="board">
+    <app-square
+      *ngFor="let val of squares; let i = index"
+      [value]="val"
+      (click)="makeMove(i)">
+    </app-square>
+  </main>
+</mat-card>
