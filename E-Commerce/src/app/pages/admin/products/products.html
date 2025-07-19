@@ -1,0 +1,111 @@
+<div class="row">
+  <div [ngClass]="sidePannelVisible ? 'col-12' : 'col-8'">
+    <div class="card">
+      <div class="card-header bg-primary">
+        <div class="row">
+          <div class="col-6 text-white">Product List</div>
+          <div class="col-6 text-end">
+            <button
+              type="button"
+              class="btn btn-sm btn-success"
+              (click)="openSidePannel()"
+            >
+              New
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row  ">
+          <div class="col-3" *ngFor="let prod of productList">
+            <div class="card" >
+              <img class="card-img-top" [src]="prod.productImageUrl" alt="Card image cap" />
+              <div class="card-body">
+                <h5 class="card-title">{{prod.prodName}}</h5>
+                <p class="card-text">
+                  {{prod.productDescription}}
+                </p>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+  <!-- another card -->
+
+  <div class="col-4" *ngIf="!sidePannelVisible">
+    <div class="card">
+      <div class="card-header bg-primary">
+        <div class="row">
+          <div class="col-6 text-white">New Product</div>
+          <div class="col-6 text-end">
+            <button class="btn btn-sm btn-success" (click)="closeSidePannel()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <label for="skuValue">SKU</label>
+            <input class="form-control" [(ngModel)]="createProduct.productSku" type="text"  id="skuValue">
+          </div>
+          <div class="col-6">
+            <label for="prodName">Name</label>
+            <input class=" form-control" type="text" [(ngModel)]="createProduct.productName"  id="prodName">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label for="prodShortName">Short Name</label>
+            <input class="form-control " [(ngModel)]="createProduct.productShortName" type="text"  id="prodShortName">
+          </div>
+          <div class="col-6">
+            <label for="prodPrice">Price</label>
+            <input class=" form-control" type="text" [(ngModel)]="createProduct.productPrice" id="prodPrice">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label for="catId">Category Id</label>
+            <select class="form-select" name="productCategory" [(ngModel)]="createProduct.categoryId" >
+              <option 
+              class="form-option"  
+              *ngFor="let cate of categoryList" [value]="cate.categoryId">
+              {{cate.categoryName}}
+              </option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="delTimeStamp">Delivery Time</label>
+            <input class=" form-control" type="text" [(ngModel)]="createProduct.deliveryTimeSpan" id="delTimeStamp">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <label for="imgUrl">Image Url</label>
+            <input class="form-control " [(ngModel)]="createProduct.productImageUrl" type="text"  id="imgUrl">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+          <label for="prodDesc">Description</label>
+            <textarea class=" form-control" type="text" [(ngModel)]="createProduct.productDescription" id="prodDesc">
+            </textarea>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col py-4">
+              <button type="button" class="mx-4 btn btn-warning">Reset</button>
+              <button type="button" (click)="onSave()" class="mx-5 btn btn-success">Save Product</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
