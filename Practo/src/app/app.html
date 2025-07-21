@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+
+        <button #loginModel id="loginmodel" class="btn btn-success" type="button" (click)="onLogin()">Login</button>
+       
+      </form>
+      
+    </div>
+  </div>
+</nav>
+
+<!-- router component -->
+
+<router-outlet></router-outlet>
+
+<div class="modal" id="loginModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Log In</h4>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onClose()"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form class="form">
+        <div class="row">
+          <div class="col-12">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control"
+            id="name">
+          </div>
+          <div class="col-12">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" class="form-control"
+            id="password">
+          </div>
+          <div class="row flex align-items-center">
+            <div class="col-3">
+              <button class="mt-2 btn btn-success"
+          (click)="addData()">
+            Submit
+          </button>
+            </div>
+            <div class="col-3">
+              <button class="mt-2 btn btn-danger"
+          (click)="onClose()">
+            Close
+          </button>
+            </div>
+          </div>
+          
+        </div>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+</div>
