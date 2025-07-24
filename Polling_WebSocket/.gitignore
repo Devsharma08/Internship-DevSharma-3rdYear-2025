@@ -1,0 +1,52 @@
+# --- Global ---
+node_modules/
+.env
+.env.local
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Backend ---
+/backend/node_modules/
+/backend/.env
+/backend/.DS_Store
+/backend/dist/
+/backend/coverage/
+
+# PM2 process files
+backend/pids
+backend/*.pid
+backend/*.seed
+
+# --- Frontend ---
+/frontend/node_modules/
+/frontend/.env
+/frontend/.DS_Store
+/frontend/build/
+/frontend/dist/
+/frontend/coverage/
+
+# Vite or CRA cache
+/frontend/.vite
+/frontend/.next
+/frontend/.turbo
+
+# Testing
+coverage/
+*.test.js
+*.spec.js
+
+# --- OS / IDE ---
+*.swp
+*.swo
+*.idea/
+*.vscode/
+*.iml
+*.sublime-project
+*.sublime-workspace

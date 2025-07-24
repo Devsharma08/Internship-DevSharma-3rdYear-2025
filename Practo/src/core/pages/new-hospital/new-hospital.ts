@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
-import { Router } from 'express';
+import { Component, OnDestroy } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 import { Hospital } from '../../services/hospital';
 import { ApiResponseModel, HospitalTy } from '../../classes/hospital/HospitalExp';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-new-hospital',
@@ -10,14 +10,14 @@ import { ApiResponseModel, HospitalTy } from '../../classes/hospital/HospitalExp
   templateUrl: './new-hospital.html',
   styleUrl: './new-hospital.css'
 })
-export class NewHospital {
+export class NewHospital implements OnDestroy{
   public hospitalData :HospitalTy = new HospitalTy() 
-
+  private subscription : Subscription [] = [];
   constructor(private hospital:Hospital){}
-  
+
   onSave(){
-    console.log(this.hospitalData);
-    this.hospital.registerHospital(this.hospitalData).subscribe((res:ApiResponseModel)=>{
+    this.subscription.push(
+      this.hospital.registerHospital(this.hospitalData).subscribe((res:ApiResponseModel)=>{
       if(res.result){
         alert(res.message);
       } else{
@@ -27,5 +27,9 @@ export class NewHospital {
     error=>{
       alert(JSON.stringify(error))
     })
+    )    
+  }
+  ngOnDestroy(){
+    this.subscription.forEach(sub => sub.unsubscribe());
   }
 }

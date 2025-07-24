@@ -31,3 +31,14 @@ export interface ApiResponseModel {
   "result":boolean;
   "data" :any;
 }
+
+export class User {
+  userName: string;
+  password: string;
+
+  constructor(){
+    this.userName = '';
+    this.password = '';
+  }
+
+}
