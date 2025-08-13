@@ -1,0 +1,97 @@
+<div class="expense-tracker-container">
+  <!-- Header Section -->
+  <header class="tracker-header">
+    <h1 class="tracker-title">Expense Tracker</h1>
+    <div class="balance-display">
+      <span class="balance-label">Current Balance:</span>
+      <span class="balance-amount">{{totalPostiveAmount-totalNegativeAmount}}</span>
+    </div>
+    <div class="summary-container">
+      <div class="summary-item income-summary">
+        <span class="summary-label">Income:</span>
+        <span class="summary-amount">{{totalPostiveAmount}}</span>
+      </div>
+      <div class="summary-item expense-summary">
+        <span class="summary-label">Expense:</span>
+        <span class="summary-amount">{{totalNegativeAmount}}</span>
+        <span class="percentage-badge">{{percentage}}%</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Form Section -->
+  <form [formGroup]="expenseForm" class="expense-form" (ngSubmit)="handleFormSubmit()">
+    <div class="form-group">
+      <label for="sign">Type</label>
+      <select name="sign" formControlName="sign" id="sign" class="form-select">
+        <option value="+">Income</option>
+        <option value="-">Expense</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="name">Description</label>
+      <input formControlName="name" placeholder="Enter transaction name" name="name" 
+             type="text" id="name" class="form-input">
+    </div>
+    
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input formControlName="amount" placeholder="0.00" name="amount" 
+             type="number" id="amount" class="form-input">
+    </div>
+    
+    <button type="submit" class="submit-btn">Add Transaction</button>
+  </form>
+
+  <!-- Transactions Section -->
+  <div class="transactions-container">
+    <div class="transactions-column income-column">
+      <h2 class="column-title">Income History</h2>
+      <ol class="transactions-list">
+        @for (item of positiveExpense; track $index) {
+          <li class="transaction-item income-item" 
+              (mouseenter)="onHover = $index" 
+              (mouseleave)="onHover=-1">
+            <div class="transaction-details">
+              <span class="transaction-name">{{item.name}}</span>
+              <span class="transaction-amount">+{{item.amount}}</span>
+            </div>
+            @if(onHover === $index){
+              <button class="delete-btn" type="button" 
+                      (click)="handleDelete($index)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                  <path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
+                </svg>
+              </button>
+            }
+          </li>
+        }
+      </ol>
+    </div>
+
+    <div class="transactions-column expense-column">
+      <h2 class="column-title">Expense History</h2>
+      <ol class="transactions-list">
+        @for (item of negativeExpense; track $index) {
+          <li class="transaction-item expense-item"
+              (mouseover)="onHoverDelete=$index" 
+              (mouseout)="onHoverDelete=-1">
+            <div class="transaction-details">
+              <span class="transaction-name">{{item.name}}</span>
+              <span class="transaction-amount">- {{item.amount}}</span>
+            </div>
+            @if(onHoverDelete===$index){
+              <button class="delete-btn" type="button" 
+                      (click)="handleDeleteNegative($index)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                  <path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
+                </svg>
+              </button>
+            }
+          </li>
+        }
+      </ol>
+    </div>
+  </div>
+</div>
